@@ -1,6 +1,4 @@
-﻿using System;
-
-public enum SwayDirection
+﻿public enum SwayDirection
 {
     Left,
     Right
