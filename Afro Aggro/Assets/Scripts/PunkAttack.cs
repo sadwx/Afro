@@ -7,7 +7,7 @@ public class PunkAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log(ChooseHair.p1);
     }
 
     // Update is called once per frame
