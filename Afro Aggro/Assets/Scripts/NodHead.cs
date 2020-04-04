@@ -19,6 +19,15 @@ public class NodHead : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Nod();
+        }
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            Nod();
+        }
     }
 
     public void Nod()

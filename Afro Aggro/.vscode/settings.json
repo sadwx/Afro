@@ -40,8 +40,8 @@
         "**/*.cubemap":true,
         "**/*.flare":true,
         "**/*.mat":true,
-        // "**/*.meta":true,
-        // "**/*.prefab":true,
+        "**/*.meta":true,
+        "**/*.prefab":true,
         "**/*.unity":true,
         "build/":true,
         "Build/":true,
@@ -49,7 +49,7 @@
         "library/":true,
         "obj/":true,
         "Obj/":true,
-        // "ProjectSettings/":true,
+        "ProjectSettings/":true,
         "temp/":true,
         "Temp/":true
     }
