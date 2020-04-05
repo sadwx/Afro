@@ -2,5 +2,6 @@
 {
     SingleHorseTail = 1,
     Punk = 2,
-    DoubleHorseTail = 3,
+    Quiff = 3,
+    DoubleHorseTail = 4,
 }

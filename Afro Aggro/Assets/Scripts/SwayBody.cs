@@ -18,7 +18,7 @@ public class SwayBody : MonoBehaviour
         _duration = Duration;
         _direction = SwayDirection;
         _transform.localRotation = Quaternion.Euler(0, 0, _degree * (_direction == SwayDirection.Left ? 1 : -1));
-        _transform.DORotateQuaternion(Quaternion.Euler(0, 0, _degree * (_direction == SwayDirection.Left ? -1 : 1)), _duration)
+        _transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, _degree * (_direction == SwayDirection.Left ? -1 : 1)), _duration)
             .SetLoops(-1, LoopType.Yoyo)
             .SetEase(Ease.Linear)
             .SetId(gameObject);
@@ -39,5 +39,15 @@ public class SwayBody : MonoBehaviour
             DOTween.Kill(gameObject);
             createTweenMove();
         }
+    }
+
+    void OnDisable()
+    {
+        DOTween.Pause(gameObject);
+    }
+
+    void OnEnable()
+    {
+        DOTween.Play(gameObject);
     }
 }
