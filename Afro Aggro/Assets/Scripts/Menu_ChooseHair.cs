@@ -1,13 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 
 public class Menu_ChooseHair : MonoBehaviour
 {
     public GameObject hair01;
     public GameObject hair02;
     public GameObject hair03;
+
+    int _choose;
+    PlayerType _playerType;
 
     //Vector3 h1 = hair01.transform.position;
     
@@ -26,19 +26,20 @@ public class Menu_ChooseHair : MonoBehaviour
         Vector3 h3 = hair03.transform.position;
 
         if(Input.GetKeyDown(KeyCode.RightArrow)){
-            ChooseHair.p1 += 1;
-            if(ChooseHair.p1>3){
-                ChooseHair.p1 = 1;
+            _choose += 1;
+            if(_choose > 3){
+                _choose = 1;
             }
         }
         if(Input.GetKeyDown(KeyCode.LeftArrow)){
-            ChooseHair.p1 -= 1;
-            if(ChooseHair.p1<1){
-                ChooseHair.p1 = 3;
+            _choose -= 1;
+            if(_choose < 1){
+                _choose = 3;
             }
         }
 
-        switch(ChooseHair.p1){
+        switch(_choose)
+        {
             case 1:
                 transform.position = h1;
                 break;
@@ -49,9 +50,40 @@ public class Menu_ChooseHair : MonoBehaviour
                 transform.position = h3;
                 break;
         }
+
+        switch (_playerType)
+        {
+            case PlayerType.Player1:
+                ChooseHair.p1 = _choose;
+                break;
+
+            default:
+                ChooseHair.p2 = _choose;
+                break;
+        }
         //Debug.Log(h1);
         //Debug.Log(my);
         //player01.transform.position = h1;
         //Debug.Log(my);  
+    }
+
+    public void SelectNextPlayer()
+    {
+        switch (_playerType)
+        {
+            case PlayerType.Player1:
+                _playerType = PlayerType.Player2;
+                break;
+        }
+    }
+
+    public PlayerType CurrentPlayer
+    {
+        get { return _playerType; }
+    }
+
+    public bool HasNextPlayer
+    {
+        get { return _playerType != PlayerType.Player2; }
     }
 }
