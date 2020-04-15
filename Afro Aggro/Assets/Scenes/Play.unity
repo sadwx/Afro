@@ -239,7 +239,7 @@ MonoBehaviour:
     type: 3}
   PunkPlayer: {fileID: 4870388176838965787, guid: 4b71443a00e194ef3a94d45bd69aa44e,
     type: 3}
-  DoubleHorseTailPlayer: {fileID: 5419785968120014242, guid: 9d06aa586451e4c9cab51a66f25c05f8,
+  DoubleHorseTailPlayer: {fileID: 5419785968120014242, guid: d9a3db49ed13b470baf0bdee17b001ff,
     type: 3}
   QuiffPlayer: {fileID: 4870388176838965787, guid: abd96e2d43a9e432bb0374a14f5f89ed,
     type: 3}

@@ -2,11 +2,10 @@
 
 public class Menu_ChooseHair : MonoBehaviour
 {
-    public GameObject hair01;
-    public GameObject hair02;
-    public GameObject hair03;
+    public GameObject[] hairs;
+    public float Distance = 300f;
 
-    int _choose;
+    int _choose = 1;
     PlayerType _playerType;
 
     //Vector3 h1 = hair01.transform.position;
@@ -14,42 +13,27 @@ public class Menu_ChooseHair : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 h1 = hair01.transform.position;
-        transform.position = h1;
+        for (var i = 0; i < hairs.Length; ++i)
+            hairs[i].transform.position = hairs[0].transform.position + new Vector3(Distance * i, 0, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 h1 = hair01.transform.position;
-        Vector3 h2 = hair02.transform.position;
-        Vector3 h3 = hair03.transform.position;
-
         if(Input.GetKeyDown(KeyCode.RightArrow)){
             _choose += 1;
-            if(_choose > 3){
+            if(_choose > hairs.Length){
                 _choose = 1;
             }
         }
         if(Input.GetKeyDown(KeyCode.LeftArrow)){
             _choose -= 1;
             if(_choose < 1){
-                _choose = 3;
+                _choose = hairs.Length;
             }
         }
 
-        switch(_choose)
-        {
-            case 1:
-                transform.position = h1;
-                break;
-            case 2:
-                transform.position = h2;
-                break;
-            case 3:
-                transform.position = h3;
-                break;
-        }
+        transform.position = hairs[_choose - 1].transform.position;
 
         switch (_playerType)
         {
